@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Blog about lifestyle and work" />
+    <title>La Mode - HTML Blog Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Shadows+Into+Light+Two&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .body-start {
+        overflow: hidden;
+      }
+      .page-loader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        z-index: 50;
+        transition: opacity 0.3s ease;
+      }
+      .loader {
+        width: 40px;
+        height: 40px;
+        border: 2px solid #e1e1e1;
+        border-top-color: #cb8c1d;
+        border-radius: 100%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body class="h-full text-dark">
+    <div id="page-loader" class="page-loader">
+      <div class="loader"></div>
+    </div>
+    <main class="min-h-screen">
+      <!-- ** Top Bar ** -->
+      <header class="border-b border-light">
+        <div
+          class="flex items-center justify-between max-w-[1172px] px-4 mx-auto text-sm"
+        >
+          <div class="flex items-center">
+            <a
+              href="#"
+              class="p-2.5 hover:text-primary"
+              aria-label="Visit me on twitter"
+            >
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a
+              href="#"
+              class="p-2.5 hover:text-primary"
+              aria-label="Visit me on pinterest"
+            >
+              <i class="fa-brands fa-pinterest-p"></i>
+            </a>
+            <a
+              href="#"
+              class="p-2.5 hover:text-primary"
+              aria-label="Visit me on facebook"
+            >
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a
+              href="#"
+              class="p-2.5 hover:text-primary"
+              aria-label="Visit me on tumblr"
+            >
+              <i class="fa-brands fa-tumblr"></i>
+            </a>
+            <a
+              href="#"
+              class="p-2.5 hover:text-primary"
+              aria-label="Visit me on youtube"
+            >
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a
+              href="#"
+              class="p-2.5 hover:text-primary"
+              aria-label="Visit me on instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+          <div>
+            <button
+              type="button"
+              id="search-trigger"
+              aria-label="Search trigger"
+            >
+              <i class="fa-solid fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+      <!-- ** END Top Bar ** -->
+
+      <!-- ** Search modal ** -->
+      <div
+        id="search-modal"
+        class="fixed top-0 left-0 w-full h-full flex items-center justify-center after:bg-dark/[0.6] after:absolute after:top-0 after:left-0 after:w-full after:h-full z-10 hidden"
+      >
+        <div
+          class="bg-white pt-8 pb-6 px-6 relative z-[1] max-w-[480px] w-full mx-4"
+        >
+          <button
+            type="button"
+            id="search-modal-close"
+            class="w-7 h-7 flex items-center justify-center absolute top-0 right-0"
+            aria-label="Search modal close"
+          >
+            <i class="fa-solid fa-close"></i>
+          </button>
+          <form class="flex items-center">
+            <input
+              type="text"
+              placeholder="Search..."
+              class="block px-4 py-2 flex-1 font-ptserif outline-0 border border-light"
+            />
+            <button
+              type="submit"
+              class="w-10 self-stretch bg-primary text-white"
+              aria-label="Search"
+            >
+              <i class="fa-solid fa-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-- ** END Search modal ** -->
+
+      <!-- ** Logo section ** -->
+      <div
+        class="max-w-[1172px] px-4 mx-auto py-[60px] flex flex-col items-center justify-center gap-3"
+      >
+        <img src="/logo.png" alt="logo" />
+        <p class="font-shadow text-primary">Just Another Blog</p>
+      </div>
+      <!-- ** END Logo section ** -->
+
+      <!-- ** Main navigation ** -->
+      <div class="border-y border-light text-center">
+        <nav
+          class="max-w-[1172px] px-4 mx-auto hidden sm:flex items-center justify-center text-xs uppercase gap-8"
+        >
+          <a href="#" class="py-4 hover:text-primary text-primary">home</a>
+          <a href="#" class="py-4 hover:text-primary">lifestyle</a>
+          <a href="#" class="py-4 hover:text-primary">fashion</a>
+          <a href="#" class="py-4 hover:text-primary">about me</a>
+          <a href="#" class="py-4 hover:text-primary">contact</a>
+        </nav>
+        <button
+          id="mobile-menu-trigger"
+          class="uppercase inline-flex sm:hidden items-center gap-2 text-xs py-4"
+          aria-label="Open mobile menu"
+          type="button"
+        >
+          <i class="fa-solid fa-bars"></i>
+          <span>menu</span>
+        </button>
+      </div>
+      <!-- ** END Main navigation ** -->
+
+      <!-- ** Mobile menu ** -->
+      <div
+        class="fixed top-0 left-0 w-full h-full hidden z-[9]"
+        id="mobile-menu-overlay"
+      ></div>
+      <div
+        id="mobile-menu"
+        class="fixed top-0 -left-[230px] h-full w-[220px] overflow-y-auto bg-dark shadow-md z-10 transition-all sm:hidden"
+      >
+        <ul
+          class="flex flex-col uppercase text-xs divide-y divide-dark-400/[0.2] text-white"
+        >
+          <li>
+            <a href="#" class="block px-4 py-4 text-primary">home</a>
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-4">lifestyle</a>
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-4">fashion</a>
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-4">about me</a>
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-4">contact</a>
+          </li>
+        </ul>
+        <button
+          id="mobile-menu-close"
+          class="block w-full text-center bg-primary text-white font-old-standard uppercase px-2 py-3 text-xs"
+          aria-label="Close mobile menu"
+        >
+          close menu
+        </button>
+      </div>
+      <!-- ** END Mobile menu ** -->
+
+      <!-- ** Slider ** -->
+      <div class="max-w-[1172px] mx-auto">
+        <div class="glide relative">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <li class="glide__slide">
+                <div
+                  class="h-[500px] bg-light flex items-center justify-center px-4 overflow-hidden relative bg-[url('/images/insta-2.jpg')] bg-center bg-cover"
+                >
+                  <div class="bg-white/[0.9] border border-dark p-1 relative">
+                    <a
+                      href="#"
+                      class="min-w-[120px] border border-dark p-px block absolute -top-[13px] left-1/2 -translate-x-1/2 after:absolute after:top-0 after:left-0 after:w-0 after:h-full hover:after:w-full after:bg-primary after:transition-all hover:text-white transition-colors z-[1] bg-white"
+                    >
+                      <span
+                        class="block uppercase border border-dark text-xs text-center p-1 relative z-[1]"
+                      >
+                        fashion
+                      </span>
+                    </a>
+                    <div
+                      class="border border-dark text-center p-8 sm:min-w-[500px]"
+                    >
+                      <h2 class="text-4xl font-old-standard mb-4">
+                        <a href="#" class="hover:text-primary"
+                          >Best boots for this fall</a
+                        >
+                      </h2>
+                      <div
+                        class="flex items-center justify-center flex-wrap text-xs gap-3"
+                      >
+                        <div class="w-10 h-10 bg-gray-200 rounded-full">
+                          <img
+                            src="/images/author-thumb.jpg"
+                            alt="author thumb"
+                            class="rounded-full object-cover w-full h-full"
+                          />
+                        </div>
+                        <p class="uppercase">
+                          By <a href="#" class="hover:text-primary">Jane Doe</a>
+                        </p>
+                        <p class="font-ptserif italic text-dark-400">
+                          October 6, 2023
+                        </p>
+                        <p>1 <i class="fa-regular fa-comments"></i></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="glide__slide">
+                <div
+                  class="h-[500px] bg-light flex items-center justify-center px-4 overflow-hidden relative bg-[url('/images/insta-7.jpg')] bg-center bg-cover"
+                >
+                  <div class="bg-white/[0.9] border border-dark p-1 relative">
+                    <a
+                      href="#"
+                      class="min-w-[120px] border border-dark p-px block absolute -top-[13px] left-1/2 -translate-x-1/2 after:absolute after:top-0 after:left-0 after:w-0 after:h-full hover:after:w-full after:bg-primary after:transition-all hover:text-white transition-colors z-[1] bg-white"
+                    >
+                      <span
+                        class="block uppercase border border-dark text-xs text-center p-1 relative z-[1]"
+                      >
+                        lifestyle
+                      </span>
+                    </a>
+                    <div
+                      class="border border-dark text-center p-8 sm:min-w-[500px]"
+                    >
+                      <h2 class="text-4xl font-old-standard mb-4">
+                        <a href="#" class="hover:text-primary"
+                          >Top 10 reasons to work from home</a
+                        >
+                      </h2>
+                      <div
+                        class="flex items-center justify-center flex-wrap text-xs gap-3"
+                      >
+                        <div class="w-10 h-10 bg-gray-200 rounded-full">
+                          <img
+                            src="/images/author-thumb.jpg"
+                            alt="author thumb"
+                            class="rounded-full object-cover w-full h-full"
+                          />
+                        </div>
+                        <p class="uppercase">
+                          By <a href="#" class="hover:text-primary">Jane Doe</a>
+                        </p>
+                        <p class="font-ptserif italic text-dark-400">
+                          October 24, 2023
+                        </p>
+                        <p>1 <i class="fa-regular fa-comments"></i></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="glide__arrows hidden md:block" data-glide-el="controls">
+            <button
+              type="button"
+              class="glide__arrow glide__arrow--left absolute top-1/2 left-4 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-dark/[0.6] text-white"
+              data-glide-dir="<"
+              aria-label="Previous slide"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button
+              type="button"
+              class="glide__arrow glide__arrow--right absolute top-1/2 right-4 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-dark/[0.6] text-white"
+              data-glide-dir=">"
+              aria-label="Next slide"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+          <div
+            class="glide__bullets absolute bottom-4 left-1/2 -translate-x-1/2 hidden md:block"
+            data-glide-el="controls[nav]"
+          >
+            <button
+              class="glide__bullet w-2.5 h-2.5 border border-white rounded-full"
+              data-glide-dir="=0"
+              aria-label="Slide change"
+            ></button>
+            <button
+              class="glide__bullet w-2.5 h-2.5 border border-white rounded-full"
+              data-glide-dir="=1"
+              aria-label="Slide change"
+            ></button>
+          </div>
+        </div>
+      </div>
+      <!-- ** END Slider ** -->
+
+      <!-- ** Highlighted sections ** -->
+      <div class="max-w-[1172px] px-4 mx-auto">
+        <div class="grid md:grid-cols-3 gap-8 py-10">
+          <a
+            href="#"
+            class="h-[225px] bg-gray-100 flex items-center justify-center group relative"
+          >
+            <img
+              src="/images/highlight-section-img-1.jpg"
+              alt=""
+              class="object-cover w-full h-full absolute top-0 left-0"
+            />
+            <div
+              class="border border-dark p-px bg-white w-[120px] h-10 relative after:absolute after:top-0 after:left-0 after:w-0 after:h-full group-hover:after:w-full after:bg-primary after:transition-all group-hover:text-white transition-colors"
+            >
+              <div
+                class="border border-dark flex items-center justify-center h-full relative z-[1]"
+              >
+                <p class="uppercase font-semibold text-xs">lifestyle</p>
+              </div>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="h-[225px] bg-gray-100 flex items-center justify-center group relative"
+          >
+            <img
+              src="/images/highlight-section-img-2.jpg"
+              alt=""
+              class="object-cover w-full h-full absolute top-0 left-0"
+            />
+            <div
+              class="border border-dark p-px bg-white w-[120px] h-10 relative after:absolute after:top-0 after:left-0 after:w-0 after:h-full group-hover:after:w-full after:bg-primary after:transition-all group-hover:text-white transition-colors"
+            >
+              <div
+                class="border border-dark flex items-center justify-center h-full relative z-[1]"
+              >
+                <p class="uppercase font-semibold text-xs">fashion</p>
+              </div>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="h-[225px] bg-gray-100 flex items-center justify-center group relative"
+          >
+            <img
+              src="/images/highlight-section-img-3.jpg"
+              alt=""
+              class="object-cover w-full h-full absolute top-0 left-0"
+            />
+            <div
+              class="border border-dark p-px bg-white w-[120px] h-10 relative after:absolute after:top-0 after:left-0 after:w-0 after:h-full group-hover:after:w-full after:bg-primary after:transition-all group-hover:text-white transition-colors"
+            >
+              <div
+                class="border border-dark flex items-center justify-center h-full relative z-[1]"
+              >
+                <p class="uppercase font-semibold text-xs">about me</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- ** END Highlighted sections ** -->
+
+      <!-- ** Main content & sidebar ** -->
+      <div
+        class="flex flex-col md:flex-row gap-10 max-w-[1172px] px-4 mx-auto pb-[60px]"
+      >
+        <!-- * Main content * -->
+        <div class="flex-1">
+          <!-- * Featured article *-->
+          <article class="mb-6">
+            <a
+              href="#"
+              class="block aspect-[800/500] bg-gray-100 mb-5 relative group"
+            >
+              <div
+                class="absolute top-4 left-4 w-[calc(100%-32px)] h-[calc(100%-32px)] bg-white/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <p
+                  class="uppercase text-xs bg-dark text-white w-[120px] py-2.5 text-center"
+                >
+                  read more
+                </p>
+              </div>
+              <img
+                src="/images/featured-post-image.jpg"
+                alt="title here"
+                class="object-cover w-full h-full"
+              />
+            </a>
+            <div>
+              <div class="flex justify-center mb-8">
+                <a
+                  href="#"
+                  class="min-w-[120px] border border-dark p-px block relative after:absolute after:top-0 after:left-0 after:w-0 after:h-full hover:after:w-full after:bg-primary after:transition-all hover:text-white transition-colors"
+                >
+                  <span
+                    class="block uppercase border border-dark text-xs text-center p-1 relative z-[1]"
+                  >
+                    fashion
+                  </span>
+                </a>
+              </div>
+              <h2 class="text-center font-old-standard text-4xl mb-3">
+                <a href="#" class="hover:text-primary"
+                  >Finding the perfect pair of shoes</a
+                >
+              </h2>
+              <div
+                class="flex items-center justify-center flex-wrap text-xs gap-3 mb-5"
+              >
+                <div class="w-10 h-10 bg-gray-100 rounded-full">
+                  <img
+                    src="/images/author-thumb.jpg"
+                    alt="author thumb"
+                    class="rounded-full object-cover w-full h-full"
+                  />
+                </div>
+                <p class="uppercase">
+                  By <a href="#" class="hover:text-primary">Jane Doe</a>
+                </p>
+                <p class="font-ptserif italic text-dark-400">
+                  October 24, 2023
+                </p>
+                <p>1 <i class="fa-regular fa-comments"></i></p>
+              </div>
+              <div
+                class="border-t border-light py-4 flex items-center justify-center flex-wrap gap-2.5 text-sm"
+              >
+                <a
+                  href="#"
+                  class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                  aria-label="Share on twitter"
+                >
+                  <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                  aria-label="Share on pinterest"
+                >
+                  <i class="fa-brands fa-pinterest-p"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                  aria-label="Share on facebook"
+                >
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                  aria-label="Share on tumblr"
+                >
+                  <i class="fa-brands fa-tumblr"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+          <!-- * END Featured article *-->
+
+          <!-- * Other articles * -->
+          <div class="flex flex-col gap-10 pb-10">
+            <article class="grid lg:grid-cols-2 gap-5 lg:gap-0">
+              <a
+                href="#"
+                class="block aspect-[400/250] bg-gray-100 relative group"
+              >
+                <div
+                  class="absolute top-4 left-4 w-[calc(100%-32px)] h-[calc(100%-32px)] bg-white/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <p
+                    class="uppercase text-xs bg-dark text-white w-[120px] py-2.5 text-center"
+                  >
+                    read more
+                  </p>
+                </div>
+                <img
+                  src="/images/article-img-1.jpg"
+                  alt="title here"
+                  class="object-cover w-full h-full"
+                />
+              </a>
+              <div class="lg:pl-5">
+                <div class="flex gap-2.5 flex-wrap mb-4">
+                  <a
+                    href="#"
+                    class="min-w-[120px] border border-dark p-px block relative after:absolute after:top-0 after:left-0 after:w-0 after:h-full hover:after:w-full after:bg-primary after:transition-all hover:text-white transition-colors"
+                  >
+                    <span
+                      class="block uppercase border border-dark text-xs text-center p-1 relative z-[1]"
+                    >
+                      lifestyle
+                    </span>
+                  </a>
+                  <a
+                    href="#"
+                    class="min-w-[120px] border border-dark p-px block relative after:absolute after:top-0 after:left-0 after:w-0 after:h-full hover:after:w-full after:bg-primary after:transition-all hover:text-white transition-colors"
+                  >
+                    <span
+                      class="block uppercase border border-dark text-xs text-center p-1 relative z-[1]"
+                    >
+                      work
+                    </span>
+                  </a>
+                </div>
+                <h2 class="font-old-standard text-2xl mb-3">
+                  <a href="#" class="hover:text-primary">
+                    Top 10 reasons to work from home
+                  </a>
+                </h2>
+                <div class="flex items-center flex-wrap text-xs gap-3 mb-5">
+                  <div class="w-10 h-10 bg-gray-100 rounded-full">
+                    <img
+                      src="/images/author-thumb.jpg"
+                      alt="author thumb"
+                      class="rounded-full object-cover w-full h-full"
+                    />
+                  </div>
+                  <p class="uppercase">
+                    By <a href="#" class="hover:text-primary">Jane Doe</a>
+                  </p>
+                  <p class="font-ptserif italic text-dark-400">
+                    October 24, 2023
+                  </p>
+                  <p>1 <i class="fa-regular fa-comments"></i></p>
+                </div>
+                <div
+                  class="border-t border-light py-4 flex items-center flex-wrap gap-2.5 text-sm"
+                >
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on twitter"
+                  >
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on pinterest"
+                  >
+                    <i class="fa-brands fa-pinterest-p"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on facebook"
+                  >
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on tumblr"
+                  >
+                    <i class="fa-brands fa-tumblr"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+            <article class="grid lg:grid-cols-2 gap-5 lg:gap-0">
+              <a
+                href="#"
+                class="block aspect-[400/250] bg-gray-100 relative group"
+              >
+                <div
+                  class="absolute top-4 left-4 w-[calc(100%-32px)] h-[calc(100%-32px)] bg-white/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <p
+                    class="uppercase text-xs bg-dark text-white w-[120px] py-2.5 text-center"
+                  >
+                    read more
+                  </p>
+                </div>
+                <img
+                  src="/images/article-img-2.jpg"
+                  alt="title here"
+                  class="object-cover w-full h-full"
+                />
+              </a>
+              <div class="lg:pl-5">
+                <div class="flex gap-2.5 flex-wrap mb-4">
+                  <a
+                    href="#"
+                    class="min-w-[120px] border border-dark p-px block relative after:absolute after:top-0 after:left-0 after:w-0 after:h-full hover:after:w-full after:bg-primary after:transition-all hover:text-white transition-colors"
+                  >
+                    <span
+                      class="block uppercase border border-dark text-xs text-center p-1 relative z-[1]"
+                    >
+                      lifestyle
+                    </span>
+                  </a>
+                  <a
+                    href="#"
+                    class="min-w-[120px] border border-dark p-px block relative after:absolute after:top-0 after:left-0 after:w-0 after:h-full hover:after:w-full after:bg-primary after:transition-all hover:text-white transition-colors"
+                  >
+                    <span
+                      class="block uppercase border border-dark text-xs text-center p-1 relative z-[1]"
+                    >
+                      travel
+                    </span>
+                  </a>
+                </div>
+                <h2 class="font-old-standard text-2xl mb-3">
+                  <a href="#" class="hover:text-primary">
+                    Venice - a unique and magical place
+                  </a>
+                </h2>
+                <div class="flex items-center flex-wrap text-xs gap-3 mb-5">
+                  <div class="w-10 h-10 bg-gray-100 rounded-full">
+                    <img
+                      src="/images/author-thumb.jpg"
+                      alt="author thumb"
+                      class="rounded-full object-cover w-full h-full"
+                    />
+                  </div>
+                  <p class="uppercase">
+                    By <a href="#" class="hover:text-primary">Jane Doe</a>
+                  </p>
+                  <p class="font-ptserif italic text-dark-400">
+                    October 24, 2023
+                  </p>
+                  <p>1 <i class="fa-regular fa-comments"></i></p>
+                </div>
+                <div
+                  class="border-t border-light py-4 flex items-center flex-wrap gap-2.5 text-sm"
+                >
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on twitter"
+                  >
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on pinterest"
+                  >
+                    <i class="fa-brands fa-pinterest-p"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on facebook"
+                  >
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on tumblr"
+                  >
+                    <i class="fa-brands fa-tumblr"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+            <article class="grid lg:grid-cols-2 gap-5 lg:gap-0">
+              <a
+                href="#"
+                class="block aspect-[400/250] bg-gray-100 relative group"
+              >
+                <div
+                  class="absolute top-4 left-4 w-[calc(100%-32px)] h-[calc(100%-32px)] bg-white/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <p
+                    class="uppercase text-xs bg-dark text-white w-[120px] py-2.5 text-center"
+                  >
+                    read more
+                  </p>
+                </div>
+                <img
+                  src="/images/article-img-3.jpg"
+                  alt="title here"
+                  class="object-cover w-full h-full"
+                />
+              </a>
+              <div class="lg:pl-5">
+                <div class="flex gap-2.5 flex-wrap mb-4">
+                  <a
+                    href="#"
+                    class="min-w-[120px] border border-dark p-px block relative after:absolute after:top-0 after:left-0 after:w-0 after:h-full hover:after:w-full after:bg-primary after:transition-all hover:text-white transition-colors"
+                  >
+                    <span
+                      class="block uppercase border border-dark text-xs text-center p-1 relative z-[1]"
+                    >
+                      lifestyle
+                    </span>
+                  </a>
+                  <a
+                    href="#"
+                    class="min-w-[120px] border border-dark p-px block relative after:absolute after:top-0 after:left-0 after:w-0 after:h-full hover:after:w-full after:bg-primary after:transition-all hover:text-white transition-colors"
+                  >
+                    <span
+                      class="block uppercase border border-dark text-xs text-center p-1 relative z-[1]"
+                    >
+                      work
+                    </span>
+                  </a>
+                </div>
+                <h2 class="font-old-standard text-2xl mb-3">
+                  <a href="#" class="hover:text-primary">
+                    Do what you love and never work a day in your life
+                  </a>
+                </h2>
+                <div class="flex items-center flex-wrap text-xs gap-3 mb-5">
+                  <div class="w-10 h-10 bg-gray-100 rounded-full">
+                    <img
+                      src="/images/author-thumb.jpg"
+                      alt="author thumb"
+                      class="rounded-full object-cover w-full h-full"
+                    />
+                  </div>
+                  <p class="uppercase">
+                    By <a href="#" class="hover:text-primary">Jane Doe</a>
+                  </p>
+                  <p class="font-ptserif italic text-dark-400">
+                    October 24, 2023
+                  </p>
+                  <p>1 <i class="fa-regular fa-comments"></i></p>
+                </div>
+                <div
+                  class="border-t border-light py-4 flex items-center flex-wrap gap-2.5 text-sm"
+                >
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on twitter"
+                  >
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on pinterest"
+                  >
+                    <i class="fa-brands fa-pinterest-p"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on facebook"
+                  >
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on tumblr"
+                  >
+                    <i class="fa-brands fa-tumblr"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+            <article class="grid lg:grid-cols-2 gap-5 lg:gap-0">
+              <a
+                href="#"
+                class="block aspect-[400/250] bg-gray-100 relative group"
+              >
+                <div
+                  class="absolute top-4 left-4 w-[calc(100%-32px)] h-[calc(100%-32px)] bg-white/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <p
+                    class="uppercase text-xs bg-dark text-white w-[120px] py-2.5 text-center"
+                  >
+                    read more
+                  </p>
+                </div>
+                <img
+                  src="/images/article-img-4.jpg"
+                  alt="title here"
+                  class="object-cover w-full h-full"
+                />
+              </a>
+              <div class="lg:pl-5">
+                <div class="flex gap-2.5 flex-wrap mb-4">
+                  <a
+                    href="#"
+                    class="min-w-[120px] border border-dark p-px block relative after:absolute after:top-0 after:left-0 after:w-0 after:h-full hover:after:w-full after:bg-primary after:transition-all hover:text-white transition-colors"
+                  >
+                    <span
+                      class="block uppercase border border-dark text-xs text-center p-1 relative z-[1]"
+                    >
+                      fashion
+                    </span>
+                  </a>
+                </div>
+                <h2 class="font-old-standard text-2xl mb-3">
+                  <a href="#" class="hover:text-primary">
+                    Best boots for this fall
+                  </a>
+                </h2>
+                <div class="flex items-center flex-wrap text-xs gap-3 mb-5">
+                  <div class="w-10 h-10 bg-gray-100 rounded-full">
+                    <img
+                      src="/images/author-thumb.jpg"
+                      alt="author thumb"
+                      class="rounded-full object-cover w-full h-full"
+                    />
+                  </div>
+                  <p class="uppercase">
+                    By <a href="#" class="hover:text-primary">Jane Doe</a>
+                  </p>
+                  <p class="font-ptserif italic text-dark-400">
+                    October 24, 2023
+                  </p>
+                  <p>1 <i class="fa-regular fa-comments"></i></p>
+                </div>
+                <div
+                  class="border-t border-light py-4 flex items-center flex-wrap gap-2.5 text-sm"
+                >
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on twitter"
+                  >
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on pinterest"
+                  >
+                    <i class="fa-brands fa-pinterest-p"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on facebook"
+                  >
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on tumblr"
+                  >
+                    <i class="fa-brands fa-tumblr"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+            <article class="grid lg:grid-cols-2 gap-5 lg:gap-0">
+              <a
+                href="#"
+                class="block aspect-[400/250] bg-gray-100 relative group"
+              >
+                <div
+                  class="absolute top-4 left-4 w-[calc(100%-32px)] h-[calc(100%-32px)] bg-white/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <p
+                    class="uppercase text-xs bg-dark text-white w-[120px] py-2.5 text-center"
+                  >
+                    read more
+                  </p>
+                </div>
+                <img
+                  src="/images/article-img-5.jpg"
+                  alt="title here"
+                  class="object-cover w-full h-full"
+                />
+              </a>
+              <div class="lg:pl-5">
+                <div class="flex gap-2.5 flex-wrap mb-4">
+                  <a
+                    href="#"
+                    class="min-w-[120px] border border-dark p-px block relative after:absolute after:top-0 after:left-0 after:w-0 after:h-full hover:after:w-full after:bg-primary after:transition-all hover:text-white transition-colors"
+                  >
+                    <span
+                      class="block uppercase border border-dark text-xs text-center p-1 relative z-[1]"
+                    >
+                      lifestyle
+                    </span>
+                  </a>
+                  <a
+                    href="#"
+                    class="min-w-[120px] border border-dark p-px block relative after:absolute after:top-0 after:left-0 after:w-0 after:h-full hover:after:w-full after:bg-primary after:transition-all hover:text-white transition-colors"
+                  >
+                    <span
+                      class="block uppercase border border-dark text-xs text-center p-1 relative z-[1]"
+                    >
+                      home
+                    </span>
+                  </a>
+                </div>
+                <h2 class="font-old-standard text-2xl mb-3">
+                  <a href="#" class="hover:text-primary">
+                    Old fashioned light bulb chandelier
+                  </a>
+                </h2>
+                <div class="flex items-center flex-wrap text-xs gap-3 mb-5">
+                  <div class="w-10 h-10 bg-gray-100 rounded-full">
+                    <img
+                      src="/images/author-thumb.jpg"
+                      alt="author thumb"
+                      class="rounded-full object-cover w-full h-full"
+                    />
+                  </div>
+                  <p class="uppercase">
+                    By <a href="#" class="hover:text-primary">Jane Doe</a>
+                  </p>
+                  <p class="font-ptserif italic text-dark-400">
+                    October 24, 2023
+                  </p>
+                  <p>1 <i class="fa-regular fa-comments"></i></p>
+                </div>
+                <div
+                  class="border-t border-light py-4 flex items-center flex-wrap gap-2.5 text-sm"
+                >
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on twitter"
+                  >
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on pinterest"
+                  >
+                    <i class="fa-brands fa-pinterest-p"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on facebook"
+                  >
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[30px] h-[30px] rounded-full border border-dark flex items-center justify-center hover:bg-dark hover:text-white transition-colors"
+                    aria-label="Share on tumblr"
+                  >
+                    <i class="fa-brands fa-tumblr"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <!-- * END Other articles * -->
+
+          <!-- * Pagination * -->
+          <nav class="flex items-center justify-center">
+            <a
+              href="#"
+              class="flex w-10 h-10 items-center justify-center mr-auto rounded-full bg-dark text-white hover:opacity-75 transition-opacity"
+              aria-label="Go to previous page"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </a>
+            <span
+              class="flex w-10 h-10 items-center justify-center font-old-standard text-primary"
+              >1</span
+            >
+            <a
+              href="#"
+              class="flex w-10 h-10 font-old-standard items-center justify-center rounded-full hover:bg-primary hover:text-white transition-colors"
+              aria-label="Go to page 2"
+            >
+              2
+            </a>
+            <a
+              href="#"
+              class="flex w-10 h-10 font-old-standard items-center justify-center rounded-full hover:bg-primary hover:text-white transition-colors"
+              aria-label="Go to page 3"
+            >
+              3
+            </a>
+            <a
+              href="#"
+              class="flex w-10 h-10 items-center justify-center ml-auto rounded-full bg-dark text-white hover:opacity-75 transition-opacity"
+              aria-label="Go to next page"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </a>
+          </nav>
+          <!-- * END Pagination * -->
+        </div>
+        <!-- * END Main content * -->
+
+        <!-- * Sidebar * -->
+        <div class="md:w-[300px] flex flex-col gap-10">
+          <!-- Widget - about me -->
+          <div>
+            <div
+              class="relative pb-2 after:absolute after:bottom-0 after:left-0 after:w-[150px] after:h-1 after:bg-primary mb-5"
+            >
+              <h3 class="text-lg font-old-standard font-bold">About me</h3>
+            </div>
+            <div>
+              <img
+                src="/images/my-picture.jpg"
+                alt="Jane Doe"
+                class="block max-w-full mb-2.5"
+              />
+              <p class="font-ptserif text-[15px] md:text-center">
+                Hello! I'm Jane Doe, 30 year old New Yorker who loves to share
+                stories about fashion and lifestyle. Enjoy reading my stories!
+              </p>
+            </div>
+          </div>
+          <!-- END Widget - about me -->
+
+          <!-- Widget - social network -->
+          <div>
+            <div
+              class="relative pb-2 after:absolute after:bottom-0 after:left-0 after:w-[150px] after:h-1 after:bg-primary mb-5"
+            >
+              <h3 class="text-lg font-old-standard font-bold">
+                Social network
+              </h3>
+            </div>
+            <div class="flex flex-wrap gap-2.5">
+              <a
+                href="#"
+                rel="noreferrer"
+                target="_blank"
+                class="w-10 h-10 flex items-center justify-center border border-dark rounded-full text-dark hover:border-primary hover:text-primary transition-colors"
+                aria-label="Visit me on twitter"
+              >
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <a
+                href="#"
+                rel="noreferrer"
+                target="_blank"
+                class="w-10 h-10 flex items-center justify-center border border-dark rounded-full text-dark hover:border-primary hover:text-primary transition-colors"
+                aria-label="Visit me on pinterest"
+              >
+                <i class="fa-brands fa-pinterest-p"></i>
+              </a>
+              <a
+                href="#"
+                rel="noreferrer"
+                target="_blank"
+                class="w-10 h-10 flex items-center justify-center border border-dark rounded-full text-dark hover:border-primary hover:text-primary transition-colors"
+                aria-label="Visit me on facebook"
+              >
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                rel="noreferrer"
+                target="_blank"
+                class="w-10 h-10 flex items-center justify-center border border-dark rounded-full text-dark hover:border-primary hover:text-primary transition-colors"
+                aria-label="Visit me on tumblr"
+              >
+                <i class="fa-brands fa-tumblr"></i>
+              </a>
+              <a
+                href="#"
+                rel="noreferrer"
+                target="_blank"
+                class="w-10 h-10 flex items-center justify-center border border-dark rounded-full text-dark hover:border-primary hover:text-primary transition-colors"
+                aria-label="Visit me on youtube"
+              >
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a
+                href="#"
+                rel="noreferrer"
+                target="_blank"
+                class="w-10 h-10 flex items-center justify-center border border-dark rounded-full text-dark hover:border-primary hover:text-primary transition-colors"
+                aria-label="Visit me on instagram"
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+          <!-- END Widget - social network -->
+
+          <!-- Widget - search -->
+          <div>
+            <div
+              class="relative pb-2 after:absolute after:bottom-0 after:left-0 after:w-[150px] after:h-1 after:bg-primary mb-5"
+            >
+              <h3 class="text-lg font-old-standard font-bold">Search</h3>
+            </div>
+            <form class="relative text-sm">
+              <input
+                type="text"
+                class="w-full bg-light-400 pl-2.5 pr-8 py-2.5 outline-0 placeholder:text-dark font-ptserif tracking-wider"
+                placeholder="Search..."
+              />
+              <button
+                type="submit"
+                class="absolute top-1/2 right-2.5 -translate-y-1/2"
+                aria-label="Submit search"
+              >
+                <i class="fa-solid fa-search"></i>
+              </button>
+            </form>
+          </div>
+          <!-- END Widget - search -->
+
+          <!-- Widget - recent posts -->
+          <div>
+            <div
+              class="relative pb-2 after:absolute after:bottom-0 after:left-0 after:w-[150px] after:h-1 after:bg-primary mb-5"
+            >
+              <h3 class="text-lg font-old-standard font-bold">Recent posts</h3>
+            </div>
+            <div class="flex flex-col gap-[30px]">
+              <article class="flex gap-5">
+                <div class="w-[100px] h-[100px] shrink-0 bg-light">
+                  <a href="#">
+                    <img
+                      src="/images/article-img-4.jpg"
+                      alt="thumb"
+                      class="object-cover w-full h-full"
+                    />
+                  </a>
+                </div>
+                <div>
+                  <h4 class="font-old-standard text-2xl leading-7 mb-1">
+                    <a href="#" class="hover:text-primary block">
+                      Finding the perfect pair of shoes
+                    </a>
+                  </h4>
+                  <p class="italic font-ptserif text-xs text-dark-400">
+                    February 6th, 2024
+                  </p>
+                </div>
+              </article>
+              <article class="flex gap-5">
+                <div class="w-[100px] h-[100px] shrink-0 bg-light">
+                  <a href="#">
+                    <img
+                      src="/images/article-img-1.jpg"
+                      alt="thumb"
+                      class="object-cover w-full h-full"
+                    />
+                  </a>
+                </div>
+                <div>
+                  <h4 class="font-old-standard text-2xl leading-7 mb-1">
+                    <a href="#" class="hover:text-primary block">
+                      Top 10 reasons to work from home
+                    </a>
+                  </h4>
+                  <p class="italic font-ptserif text-xs text-dark-400">
+                    February 6th, 2024
+                  </p>
+                </div>
+              </article>
+              <article class="flex gap-5">
+                <div class="w-[100px] h-[100px] shrink-0 bg-light">
+                  <a href="#">
+                    <img
+                      src="/images/article-img-2.jpg"
+                      alt="thumb"
+                      class="object-cover w-full h-full"
+                    />
+                  </a>
+                </div>
+                <div>
+                  <h4 class="font-old-standard text-2xl leading-7 mb-1">
+                    <a href="#" class="hover:text-primary block">
+                      Venice - a unique and magical place
+                    </a>
+                  </h4>
+                  <p class="italic font-ptserif text-xs text-dark-400">
+                    February 6th, 2024
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- END Widget - recent posts -->
+
+          <!-- Widget - newsletter -->
+          <div>
+            <div
+              class="relative pb-2 after:absolute after:bottom-0 after:left-0 after:w-[150px] after:h-1 after:bg-primary mb-5"
+            >
+              <h3 class="text-lg font-old-standard font-bold">Newsletter</h3>
+            </div>
+            <form class="text-sm">
+              <input
+                type="text"
+                class="w-full bg-light-400 pl-2.5 pr-8 py-2.5 outline-0 placeholder:text-dark font-ptserif tracking-wider mb-5"
+                placeholder="Your email address"
+              />
+              <button
+                type="submit"
+                class="bg-primary text-white uppercase text-lg leading-[22px] font-old-standard block w-full py-[9px] px-2 hover:bg-primary/[0.9] transition-colors"
+              >
+                Sign up
+              </button>
+            </form>
+          </div>
+          <!-- END Widget - newsletter -->
+
+          <!-- Widget - instagram -->
+          <div>
+            <div
+              class="relative pb-2 after:absolute after:bottom-0 after:left-0 after:w-[150px] after:h-1 after:bg-primary mb-5"
+            >
+              <h3 class="text-lg font-old-standard font-bold">Instagram</h3>
+            </div>
+            <div class="flex flex-wrap gap-5">
+              <div class="w-[140px] h-[140px]">
+                <a
+                  href="#"
+                  rel="noreferrer"
+                  target="_blank"
+                  class="hover:opacity-[0.9] transition-opacity"
+                >
+                  <img
+                    src="/images/insta-1.jpg"
+                    alt="insta image description"
+                    class="object-cover w-full h-full"
+                  />
+                </a>
+              </div>
+              <div class="w-[140px] h-[140px]">
+                <a
+                  href="#"
+                  rel="noreferrer"
+                  target="_blank"
+                  class="hover:opacity-[0.9] transition-opacity"
+                >
+                  <img
+                    src="/images/insta-2.jpg"
+                    alt="insta image description"
+                    class="object-cover w-full h-full"
+                  />
+                </a>
+              </div>
+              <div class="w-[140px] h-[140px]">
+                <a
+                  href="#"
+                  rel="noreferrer"
+                  target="_blank"
+                  class="hover:opacity-[0.9] transition-opacity"
+                >
+                  <img
+                    src="/images/insta-3.jpg"
+                    alt="insta image description"
+                    class="object-cover w-full h-full"
+                  />
+                </a>
+              </div>
+              <div class="w-[140px] h-[140px]">
+                <a
+                  href="#"
+                  rel="noreferrer"
+                  target="_blank"
+                  class="hover:opacity-[0.9] transition-opacity"
+                >
+                  <img
+                    src="/images/insta-4.jpg"
+                    alt="insta image description"
+                    class="object-cover w-full h-full"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- END Widget - instagram -->
+
+          <!-- Widget - categories -->
+          <div>
+            <div
+              class="relative pb-2 after:absolute after:bottom-0 after:left-0 after:w-[150px] after:h-1 after:bg-primary mb-5"
+            >
+              <h3 class="text-lg font-old-standard font-bold">Categories</h3>
+            </div>
+            <ul
+              class="divide-y divide-light border-y border-light text-sm font-ptserif list-disc list-inside marker:text-dark-400"
+            >
+              <li class="py-[5px]">
+                <a href="#" class="hover:text-primary">Fashion (5)</a>
+              </li>
+              <li class="py-[5px]">
+                <a href="#" class="hover:text-primary">Lifestyle (12)</a>
+              </li>
+              <li class="py-[5px]">
+                <a href="#" class="hover:text-primary">Work (3)</a>
+              </li>
+              <li class="py-[5px]">
+                <a href="#" class="hover:text-primary">Travel (3)</a>
+              </li>
+              <li class="py-[5px]">
+                <a href="#" class="hover:text-primary">Home (6)</a>
+              </li>
+            </ul>
+          </div>
+          <!-- END Widget - categories -->
+        </div>
+        <!-- * END Sidebar * -->
+      </div>
+      <!-- ** END Main content & sidebar ** -->
+
+      <!-- ** Instagram section ** -->
+      <div class="max-w-[1172px] mx-auto relative">
+        <div class="grid grid-cols-4 md:grid-cols-8">
+          <div class="aspect-square">
+            <img
+              src="/images/insta-1.jpg"
+              alt="insta image description"
+              class="object-cover w-full h-full"
+            />
+          </div>
+          <div class="aspect-square">
+            <img
+              src="/images/insta-2.jpg"
+              alt="insta image description"
+              class="object-cover w-full h-full"
+            />
+          </div>
+          <div class="aspect-square">
+            <img
+              src="/images/insta-3.jpg"
+              alt="insta image description"
+              class="object-cover w-full h-full"
+            />
+          </div>
+          <div class="aspect-square">
+            <img
+              src="/images/insta-4.jpg"
+              alt="insta image description"
+              class="object-cover w-full h-full"
+            />
+          </div>
+          <div class="aspect-square">
+            <img
+              src="/images/insta-5.jpg"
+              alt="insta image description"
+              class="object-cover w-full h-full"
+            />
+          </div>
+          <div class="aspect-square">
+            <img
+              src="/images/insta-6.jpg"
+              alt="insta image description"
+              class="object-cover w-full h-full"
+            />
+          </div>
+          <div class="aspect-square">
+            <img
+              src="/images/insta-7.jpg"
+              alt="insta image description"
+              class="object-cover w-full h-full"
+            />
+          </div>
+          <div class="aspect-square">
+            <img
+              src="/images/insta-8.jpg"
+              alt="insta image description"
+              class="object-cover w-full h-full"
+            />
+          </div>
+        </div>
+        <a
+          href="#"
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-dark p-px block bg-white after:absolute after:top-0 after:left-0 after:w-0 after:h-full hover:after:w-full after:bg-primary after:transition-all hover:text-white transition-colors"
+        >
+          <span
+            class="block uppercase border border-dark text-xs text-center px-4 py-[9px] relative z-[1] truncate"
+          >
+            follow me on instagram
+          </span>
+        </a>
+      </div>
+      <!-- ** END Instagram section ** -->
+
+      <!-- ** Footer ** -->
+      <footer>
+        <div class="bg-dark">
+          <div class="max-w-[1172px] mx-auto py-10 px-4">
+            <div
+              class="flex flex-col md:flex-row items-center justify-center gap-10"
+            >
+              <img src="/logo2.png" alt="logo" />
+              <div class="flex flex-col gap-4 text-white">
+                <h4 class="font-old-standard text-2xl">
+                  Sign up for our daily news
+                </h4>
+                <form
+                  class="flex flex-col sm:flex-row gap-2 sm:gap-0 items-center"
+                >
+                  <input
+                    type="text"
+                    class="bg-white w-full sm:w-auto lg:w-[350px] font-ptserif text-sm px-2 py-2.5 outline-0 text-dark"
+                    placeholder="Enter your email address"
+                  />
+                  <button
+                    type="submit"
+                    class="uppercase font-old-standard w-full sm:w-[150px] h-10 flex justify-center items-center bg-primary hover:bg-primary/[0.9] transition-colors"
+                    aria-label="Newsletter sign up"
+                  >
+                    Sign up
+                  </button>
+                </form>
+              </div>
+            </div>
+            <div
+              class="border-t border-dark-400 mt-10 pt-10 flex items-center justify-center flex-wrap gap-5"
+            >
+              <a
+                href="#"
+                rel="noreferrer"
+                target="_blank"
+                class="w-10 h-10 flex items-center justify-center border border-white rounded-full text-white hover:border-primary hover:text-primary transition-colors"
+                aria-label="Visit me on twitter"
+              >
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <a
+                href="#"
+                rel="noreferrer"
+                target="_blank"
+                class="w-10 h-10 flex items-center justify-center border border-white rounded-full text-white hover:border-primary hover:text-primary transition-colors"
+                aria-label="Visit me on pinterest"
+              >
+                <i class="fa-brands fa-pinterest-p"></i>
+              </a>
+              <a
+                href="#"
+                rel="noreferrer"
+                target="_blank"
+                class="w-10 h-10 flex items-center justify-center border border-white rounded-full text-white hover:border-primary hover:text-primary transition-colors"
+                aria-label="Visit me on facebook"
+              >
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                rel="noreferrer"
+                target="_blank"
+                class="w-10 h-10 flex items-center justify-center border border-white rounded-full text-white hover:border-primary hover:text-primary transition-colors"
+                aria-label="Visit me on tumblr"
+              >
+                <i class="fa-brands fa-tumblr"></i>
+              </a>
+              <a
+                href="#"
+                rel="noreferrer"
+                target="_blank"
+                class="w-10 h-10 flex items-center justify-center border border-white rounded-full text-white hover:border-primary hover:text-primary transition-colors"
+                aria-label="Visit me on youtube"
+              >
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a
+                href="#"
+                rel="noreferrer"
+                target="_blank"
+                class="w-10 h-10 flex items-center justify-center border border-white rounded-full text-white hover:border-primary hover:text-primary transition-colors"
+                aria-label="Visit me on instagram"
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="max-w-[1172px] mx-auto py-3">
+          <p class="text-center text-sm font-ptserif">
+            <span class="font-shadow">LA MODE</span> - HTML Blog Template made
+            with <i class="fa-solid fa-heart text-primary"></i> by
+            CodingFromScratch
+          </p>
+        </div>
+      </footer>
+      <!-- ** END Footer ** -->
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
